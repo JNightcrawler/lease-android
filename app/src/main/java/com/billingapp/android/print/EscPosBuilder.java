@@ -2,7 +2,6 @@ package com.billingapp.android.print;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 
 /**
  * Builds raw ESC/POS command bytes understood by most thermal receipt printers
@@ -48,10 +47,13 @@ public class EscPosBuilder {
     public EscPosBuilder text(String text) {
         try {
             buffer.write(text.getBytes("windows-1252"));
-        } catch (UnsupportedEncodingException | IOException e) {
+        } catch (IOException e) {
             // windows-1252 is safe for basic Latin text on virtually all thermal printers;
             // fall back to platform default if it's somehow unavailable.
-            buffer.write(text.getBytes());
+            try {
+                buffer.write(text.getBytes());
+            } catch (IOException ignored) {
+            }
         }
         return this;
     }
@@ -84,7 +86,9 @@ public class EscPosBuilder {
         return buffer.toByteArray();
     }
 
-    private void write(byte... bytes) {
-        buffer.write(bytes, 0, bytes.length);
+    private void write(int... bytes) {
+        for (int b : bytes) {
+            buffer.write((byte) b);
+        }
     }
 }

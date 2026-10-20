@@ -43,7 +43,6 @@ dependencies {
     // Local persistence - this app is fully standalone, no networking dependency at all.
     val roomVersion = "2.6.1"
     implementation("androidx.room:room-runtime:$roomVersion")
-    implementation("androidx.room:room-livedata:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
 
     implementation("androidx.lifecycle:lifecycle-livedata:2.8.4")
