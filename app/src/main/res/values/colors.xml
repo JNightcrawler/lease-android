@@ -1,0 +1,10 @@
+<resources>
+    <color name="ic_launcher_background">#2E5E4E</color>
+    <color name="colorPrimary">#2E5E4E</color>
+    <color name="colorPrimaryDark">#1E3F33</color>
+    <color name="colorAccent">#E8A33D</color>
+    <color name="white">#FFFFFF</color>
+    <color name="errorRed">#B3261E</color>
+    <color name="warningAmber">#B26A00</color>
+    <color name="successGreen">#2E7D32</color>
+</resources>

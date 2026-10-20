@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:title="Printer Setup"
+            app:titleTextColor="@color/white"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How should bills be printed?"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <RadioGroup
+            android:id="@+id/printerTypeGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/radioSystemPrint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="System Print (WiFi printer, save as PDF, etc.)" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginBottom="8dp"
+                android:text="Opens the standard Android print dialog. No pairing needed - works with any printer already set up on this device."
+                android:textSize="12sp" />
+
+            <RadioButton
+                android:id="@+id/radioBluetoothThermal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bluetooth Thermal Receipt Printer" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="Sends the receipt directly to a paired thermal printer (ESC/POS). Pair the printer in Android's Bluetooth settings first, then pick it below."
+                android:textSize="12sp" />
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/bluetoothSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paired Bluetooth devices"
+                android:textStyle="bold" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGrantPermission"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Grant Bluetooth permission"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/noDevicesText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="No paired devices found. Pair your printer in Android's Bluetooth settings first."
+                android:visibility="gone" />
+
+            <RadioGroup
+                android:id="@+id/deviceGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Save" />
+
+    </LinearLayout>
+</ScrollView>
